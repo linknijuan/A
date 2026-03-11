@@ -278,8 +278,6 @@
             border: 1px solid var(--glass-border);
         }
 
-        .modal h3 { margin-bottom: 15px; }
-        .modal p { color: var(--text-muted); margin-bottom: 20px; }
         .modal-btn {
             background: var(--primary);
             color: white;
@@ -295,7 +293,7 @@
 
     <div id="app">
         <header>
-            <h1>PARA NIMO RA NI</h1>
+            <h1>IMOA RA NI</h1>
             <button class="install-btn" onclick="toggleModal('install-modal', true)">Install</button>
         </header>
 
@@ -305,10 +303,10 @@
 
         <div id="start-screen" class="screen active">
             <div class="center-content">
-                <div class="logo-circle">💻</div>
-                <h2>REVIEW</h2>
-                <p style="margin-bottom: 30px;">Ikaw ra dapat makakita ani</p>
-                <button class="primary-btn" onclick="startQuiz()">Start Now</button>
+                <div class="logo-circle">🌐</div>
+                <h2>IKAW RA DAPAT MAKAKITA ANI</h2>
+                <p style="margin-bottom: 30px;">Make sure nga way lain makakita</p>
+                <button class="primary-btn" onclick="startQuiz()">Start Review</button>
             </div>
         </div>
 
@@ -327,33 +325,32 @@
 
         <div id="result-screen" class="screen">
             <div class="center-content">
-                <div class="logo-circle">🏆</div>
+                <div class="logo-circle">📊</div>
                 <h1 id="final-score" style="font-size: 3rem; margin-bottom: 10px;">0%</h1>
-                <p id="result-msg" style="margin-bottom: 30px;">Finish!</p>
-                <button class="primary-btn" onclick="location.reload()">Restart</button>
+                <p id="result-msg" style="margin-bottom: 30px;"></p>
+                <button class="primary-btn" onclick="location.reload()">Restart Reviewer</button>
             </div>
         </div>
 
         <div id="install-modal" class="modal-overlay">
             <div class="modal">
-                <h3>Install App</h3>
-                <p>Add this to your Home Screen for offline access.</p>
+                <h3>Offline Mode</h3>
+                <p>Add to home screen for offline use.</p>
                 <button class="modal-btn" onclick="toggleModal('install-modal', false)">Close</button>
             </div>
         </div>
 
         <div id="feedback-modal" class="modal-overlay">
             <div class="modal">
-                <h3 style="color: var(--error);">Incorrect</h3>
+                <h3 style="color: var(--error);">Try Again</h3>
                 <p id="feedback-text"></p>
-                <button class="modal-btn" onclick="toggleModal('feedback-modal', false)">Try Again</button>
+                <button class="modal-btn" onclick="toggleModal('feedback-modal', false)">Back to Question</button>
             </div>
         </div>
     </div>
 
 <script>
     const questions = [
-        { q: "What is the spider-like interconnection of millions of pieces of information located on computers around the cyber space?", options: ["Browser", "E-commerce", "Internet of Things (IoT)", "World Wide Web"], correct: 3 },
         { q: "A non-profit organization wants to ensure that their website is accessible to visually impaired users. Which specific technology allows a computer to read the text on the screen aloud?", options: ["JPG", "HTML", "Screen Reader", "Graphic Interface"], correct: 2 },
         { q: "The Green-Netteam needs to see how many people visited their site from Manila versus Davao. Which specific tool provides this geographical data?", options: ["Bing", "Chrome", "Google Analytics", "Microsoft Word"], correct: 2 },
         { q: "An ICT student is creating a banner for a social media campaign. What is the standard unit used to measure the resolution of digital images?", options: ["Grams", "Pixels", "Meters", "Liters"], correct: 1 },
@@ -363,37 +360,37 @@
         { q: "A user clicks a button on a webpage and is immediately sent to a different site. What is the technical term for this clickable link?", options: ["Hyperlink", "Database", "Hard Drive", "Search Engine"], correct: 0 },
         { q: "The team is in the 'Planning' stage of their ICT project. What document lists the goals, audience, and budget of the project?", options: ["Letter", "Concept Paper", "Financial Report", "Attendance Sheet"], correct: 1 },
         { q: "The Green-Net site is receiving too many 'bot' comments that are irrelevant to the cause. What is the common term for these unwanted digital messages?", options: ["Spam", "Virus", "Cookie", "Malware"], correct: 0 },
-        { q: "A volunteer is checking how many 'Unique Visitors' the site had in 24 hours. What does a 'Unique Visitor' represent?", options: ["One person", "Total clicks", "Shared links", "Page refreshes"], correct: 0 },
+        { q: "A volunteer is checking how many 'Unique Visitors' the site had in 24 hours. In web traffic terms, what does a 'Unique Visitor' represent?", options: ["One person", "Total clicks", "Shared links", "Page refreshes"], correct: 0 },
         { q: "The project manager wants to ensure the site is visible on Google Search. What is the acronym for the process of improving website visibility?", options: ["RAM", "SEO", "CPU", "HTTP"], correct: 1 },
         { q: "The group is uploading a logo that needs to have a transparent background. Which file extension supports transparency for web use?", options: ["DOC", "PNG", "MP3", "EXE"], correct: 1 },
         { q: "A student is looking at the web address https://www.cogonnationalhighschool.com. What does the 'S' in HTTPS stand for?", options: ["Secure", "Simple", "Service", "Standard"], correct: 0 },
-        { q: "The team is using a CMS to build their website. What does 'CMS' stand for?", options: ["Computer Main System", "Center Management Site", "Creative Media Software", "Content Management System"], correct: 3 },
+        { q: "The team is using a CMS to build their website. What does 'CMS' stand for in the context of web development?", options: ["Computer Main System", "Center Management Site", "Creative Media Software", "Content Management System"], correct: 3 },
         { q: "The advocacy page has a button that says 'Sign the Petition Here.' What is the functional name for this specific button?", options: ["URL", "CTA", "DNS", "RAM"], correct: 1 },
-        { q: "The Green-Net team is evaluating the 'Richness' of their website experience. Which combination creates a 'Rich' user experience?", options: ["Text and color", "Files and folders", "Page numbers and footers", "Interactivity and multimedia"], correct: 3 },
-        { q: "What two tasks are essential during the maintenance of a social advocacy site?", options: ["Printing and filing", "Buying and selling", "Typing and scanning", "Updating and monitoring"], correct: 3 },
-        { q: "Which of the following sets correctly identifies these pillars?", options: ["Phone, Radio, TV", "Money, Fame, Power", "People, Process, Tools", "Hardware, Software, Cords"], correct: 2 },
+        { q: "The Green-Net team is evaluating the 'Richness' of their website experience. Which combination of elements creates a 'Rich' user experience?", options: ["Text and color", "Files and folders", "Page numbers and footers", "Interactivity and multimedia"], correct: 3 },
+        { q: "The developers are finalizing the 'Maintenance' phase of the project. What two tasks are essential during the maintenance of a social advocacy site?", options: ["Printing and filing", "Buying and selling", "Typing and scanning", "Updating and monitoring"], correct: 3 },
+        { q: "A student is asked to list the 'Three Pillars' of ICT for Social Change. Which of the following sets correctly identifies these pillars?", options: ["Phone, Radio, TV", "Money, Fame, Power", "People, Process, Tools", "Hardware, Software, Cords"], correct: 2 },
         { q: "The group needs to analyze their Facebook Insights report. Which two metrics are most important for measuring 'Engagement'?", options: ["Font and color", "Time and date", "Size and weight", "Likes and shares"], correct: 3 },
-        { q: "What are the necessary components of an effective digital infographic?", options: ["Audio and video", "Links and codes", "Visuals and data", "Tables and chairs"], correct: 2 },
+        { q: "The team is designing an Infographic for their campaign. What are the necessary components of an effective digital infographic?", options: ["Audio and video", "Links and codes", "Visuals and data", "Tables and chairs"], correct: 2 },
         { q: "The teacher asks for the different roles in an ICT project team. Which list correctly identifies common team roles?", options: ["Driver and Guard", "Doctor and Nurse", "Student and Parent", "Editor and Designer"], correct: 3 },
         { q: "The project is moving from 'Development' to 'Release.' What two things must be checked before making the site public?", options: ["Desk and Chair", "Paper and Pencil", "Mouse and Keyboard", "Broken links and Typos"], correct: 3 },
-        { q: "Which tools are best for collecting user opinions and suggestions?", options: ["Maps and GPS", "Games and Apps", "Clocks and Timers", "Surveys and Comments"], correct: 3 },
-        { q: "What are the defining characteristics of Web 2.0?", options: ["Faster speed and RAM", "More colors and fonts", "Bigger screens and pixels", "Participation and Sharing"], correct: 3 },
-        { q: "What features indicate a website is protecting user information?", options: ["Nice logos and images", "Many pages and links", "Fast loading and music", "SSL certificates and Passwords"], correct: 3 },
-        { q: "How does the design of the landing page directly affect the conversion rate?", options: ["Better colors", "More images", "High traffic", "A clear CTA"], correct: 3 },
-        { q: "What is the relationship between 'Posting Frequency' and the 'Platform Algorithm'?", options: ["File size matters", "Inactive pages deleted", "Consistent activity improves visibility", "No impact"], correct: 2 },
-        { q: "What is the primary difference in how Static vs Dynamic sites relate to the user?", options: ["Price", "Images", "Dynamic sites respond to user input", "Mobile support"], correct: 2 },
-        { q: "80% of users are on mobile phones. How should this influence development?", options: ["Delete desktop version", "Prioritize mobile-responsive design", "Increase text size for PC", "Stop using HD images"], correct: 1 },
-        { q: "How do Blogs and Social Media Platforms complement each other in a campaign?", options: ["Photos vs Text", "Blogs provide depth, Social Media reach", "Age demographics", "Update speed"], correct: 1 },
-        { q: "What is the causal link between Alt-text and web accessibility?", options: ["Speed", "Colors", "Allows screen readers to describe images", "Hacking"], correct: 2 },
-        { q: "Why is the 'Concept Paper' critical to the success of the Development phase?", options: ["Payment", "Government", "Blueprint for all technical decisions", "Replaces CMS"], correct: 2 },
-        { q: "What is the most likely relationship between 'Media Files' and 'Page Speed'?", options: ["Videos faster", "ISP determined", "Plugins", "Unoptimized images increase loading time"], correct: 3 },
-        { q: "How does the 'Evaluation' phase lead to a better 'User Experience'?", options: ["Costs", "Identifies friction points for designers", "User error", "Ignore comments"], correct: 1 },
-        { q: "How does 'Crowdsourcing' change the traditional 'Top-Down' management style?", options: ["Easier work", "Empowers the community to co-create", "Budget removal", "Local only"], correct: 1 },
-        { q: "What is the most sustainable way to 'Scale Up' this model to an entire province?", options: ["Photos", "Computers", "Facebook ads", "Create a replicable digital toolkit"], correct: 3 },
-        { q: "Predict how AI might change the future of social advocacies.", options: ["No websites", "Force coding", "Highly personalized messaging", "Stop social media"], correct: 2 },
-        { q: "Evaluate the role of ICT in modern activism.", options: ["Digital tools only", "Distraction", "ICT catalyst for offline mobilization", "Gathering emails"], correct: 2 },
-        { q: "How should an ICT-based advocacy adapt to social media restrictions?", options: ["Stop project", "Flyers", "Fake names", "Build independent, hosted platforms"], correct: 3 },
-        { q: "Which principle is most essential for ensuring long-term 'Social Impact'?", options: ["Influencers", "Ad spending", "Advanced Tech", "Aligning tools with human-centric goals"], correct: 3 }
+        { q: "Green-Net wants to gather qualitative feedback from their supporters. Which tools are best for collecting user opinions and suggestions?", options: ["Maps and GPS", "Games and Apps", "Clocks and Timers", "Surveys and Comments"], correct: 3 },
+        { q: "The team is discussing 'Web 2.0' features. What are the defining characteristics of Web 2.0?", options: ["Faster speed and RAM", "More colors and fonts", "Bigger screens and pixels", "Participation and Sharing"], correct: 3 },
+        { q: "A user is concerned about the 'Security' of their data on the petition site. What features indicate a website is protecting user information?", options: ["Nice logos and images", "Many pages and links", "Fast loading and music", "SSL certificates and Passwords"], correct: 3 },
+        { q: "The Green-Net website has 5,000 visitors, but only 10 people signed the petition. How does the design of the landing page directly affect the conversion rate?", options: ["Better colors make people stay longer.", "More images increase the site's speed.", "High traffic automatically leads to success.", "A clear CTA guides users to take action."], correct: 3 },
+        { q: "The team noticed that their Facebook reach drops whenever they stop posting for a week. What is the relationship between 'Posting Frequency' and the 'Platform Algorithm'?", options: ["Algorithms only care about the file size.", "Inactive pages are deleted by the system.", "Consistent activity improves post visibility.", "Frequency has no impact on audience reach."], correct: 2 },
+        { q: "A developer compares a 'Static' website to a 'Dynamic' website. What is the primary difference in how they relate to the user?", options: ["Static sites are always more expensive.", "Dynamic sites have more colorful images.", "Dynamic sites respond to user input.", "Static sites are only for mobile phones."], correct: 2 },
+        { q: "The project uses 'Google Analytics' to see that 80% of their users are on mobile phones. How should this data influence the project's development phase?", options: ["They should delete the desktop version.", "They must prioritize mobile-responsive design.", "They should increase the text size for PCs.", "They must stop using high-resolution images."], correct: 1 },
+        { q: "An advocacy group is choosing between a Blog and a Social Media Page. How do these two platforms complement each other in a campaign?", options: ["Blogs are for photos, Social Media is for text.", "Blogs provide depth, Social Media provides reach.", "Social Media is for old people, Blogs are for kids.", "Blogs are faster to update than Social Media."], correct: 1 },
+        { q: "The team implements 'Alternative Text' (Alt-text) for all images on the site. What is the causal link between Alt-text and web accessibility?", options: ["It makes the images load faster on slow internet.", "It changes the colors for people with color blindness.", "It allows screen readers to describe images to the blind.", "It prevents the website from being hacked by viruses."], correct: 2 },
+        { q: "The Green-Net campaign is transitioning from 'Planning' to 'Development.' Why is the 'Concept Paper' critical to the success of the Development phase?", options: ["It serves as the final payment for the developers.", "It is required by the government for all websites.", "It acts as the blueprint for all technical decisions.", "It replaces the need for a Content Management System."], correct: 2 },
+        { q: "Users complain that the Green-Net site takes too long to load on their phones. What is the most likely relationship between 'Media Files' and 'Page Speed'?", options: ["Large videos make the page load much faster.", "Page speed is only determined by the ISP.", "Speed is improved by adding more plugins.", "Unoptimized images increase the loading time."], correct: 3 },
+        { q: "The team receives 'Feedback' that the website navigation is confusing. How does the 'Evaluation' phase lead to a better 'User Experience'?", options: ["It increases the total cost of the project.", "It identifies friction points for designers to fix.", "It proves that the users do not know how to use tech.", "It allows the team to ignore the negative comments."], correct: 1 },
+        { q: "A social campaign uses 'Crowdsourcing' to gather ideas for their next project. How does this approach change the traditional 'Top-Down' management style?", options: ["It makes the project manager's job easier.", "It empowers the community to co-create solutions.", "It ensures that the project will have no budget.", "It limits the project to only local participants."], correct: 1 },
+        { q: "The Green-Net project has successfully reduced waste in one small village using ICT. What is the most sustainable way to 'Scale Up' this model to an entire province?", options: ["Post more photos of the successful village.", "Buy more computers for the project team.", "Increase the number of ads on the Facebook page.", "Create a replicable digital toolkit for other leaders."], correct: 3 },
+        { q: "Consider the rise of 'Artificial Intelligence' (AI) in social media algorithms. Predict how AI might change the future of social advocacies like Green-Net.", options: ["It will make websites completely unnecessary.", "It will force all advocates to learn coding.", "It will allow for highly personalized messaging.", "It will stop people from using social media."], correct: 2 },
+        { q: "A critic argues that 'Online Petitions' are useless because they don't involve physical action. Evaluate the role of ICT in modern activism based on the Green-Net experience.", options: ["Digital tools are the only things that matter.", "ICT is just a distraction from real problems.", "ICT acts as a catalyst for offline mobilization.", "Online petitions are only for gathering emails."], correct: 2 },
+        { q: "The government passes a law that restricts social media use for non-profits. How should an ICT-based advocacy adapt to remain effective?", options: ["They should stop the project immediately.", "They should focus on printing more flyers.", "They should use fake names to continue posting.", "They should build independent, hosted platforms."], correct: 3 },
+        { q: "Reflecting on the entire lifecycle of an ICT Project for Social Change. Which principle is most essential for ensuring long-term 'Social Impact'?", options: ["Hiring the most famous social media influencers.", "Spending the most money on digital advertising.", "Having the most advanced technology available.", "Aligning technical tools with human-centric goals."], correct: 3 }
     ];
 
     let currentIdx = 0;
@@ -401,14 +398,8 @@
     let locked = false;
     let penalty = false;
 
-    const progressBar = document.getElementById('progress-bar');
-    const qNumber = document.getElementById('q-number');
-    const qText = document.getElementById('q-text');
-    const optionsCont = document.getElementById('options-container');
-    const nextBtn = document.getElementById('next-btn');
-
     function toggleModal(id, open) {
-        document.getElementById(id).classList.toggle('open', open);
+        document.getElementById(id).style.display = open ? 'flex' : 'none';
     }
 
     function startQuiz() {
@@ -420,20 +411,21 @@
     function loadQuestion() {
         locked = false;
         penalty = false;
-        nextBtn.classList.add('hidden');
+        document.getElementById('next-btn').classList.add('hidden');
         const q = questions[currentIdx];
-        qNumber.textContent = `Question ${currentIdx + 1} / ${questions.length}`;
-        qText.textContent = q.q;
-        optionsCont.innerHTML = '';
+        document.getElementById('q-number').textContent = `Question ${currentIdx + 1} / ${questions.length}`;
+        document.getElementById('q-text').textContent = q.q;
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
         
         q.options.forEach((opt, i) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             btn.innerHTML = `<strong>${String.fromCharCode(65 + i)}</strong> ${opt}`;
             btn.onclick = () => check(i, btn);
-            optionsCont.appendChild(btn);
+            container.appendChild(btn);
         });
-        progressBar.style.width = `${(currentIdx / questions.length) * 100}%`;
+        document.getElementById('progress-bar').style.width = `${(currentIdx / questions.length) * 100}%`;
     }
 
     function check(idx, btn) {
@@ -443,11 +435,11 @@
             btn.classList.add('correct');
             locked = true;
             if (!penalty) score++;
-            nextBtn.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
         } else {
             btn.classList.add('wrong');
             penalty = true;
-            document.getElementById('feedback-text').textContent = `Correct: ${questions[currentIdx].options[correct]}`;
+            document.getElementById('feedback-text').textContent = `Correct answer: ${questions[currentIdx].options[correct]}`;
             toggleModal('feedback-modal', true);
         }
     }
@@ -455,13 +447,16 @@
     function nextQuestion() {
         currentIdx++;
         if (currentIdx < questions.length) loadQuestion();
-        else {
-            document.getElementById('quiz-screen').classList.remove('active');
-            document.getElementById('result-screen').classList.add('active');
-            const pct = Math.round((score / questions.length) * 100);
-            document.getElementById('final-score').textContent = `${pct}%`;
-            progressBar.style.width = '100%';
-        }
+        else showResults();
+    }
+
+    function showResults() {
+        document.getElementById('quiz-screen').classList.remove('active');
+        document.getElementById('result-screen').classList.add('active');
+        const pct = Math.round((score / questions.length) * 100);
+        document.getElementById('final-score').textContent = `${pct}%`;
+        document.getElementById('result-msg').textContent = `Final Score: ${score} out of ${questions.length}`;
+        document.getElementById('progress-bar').style.width = '100%';
     }
 </script>
 </body>
